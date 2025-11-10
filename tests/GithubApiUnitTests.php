@@ -39,6 +39,7 @@ class GithubApiUnitTests extends WebTestCase
     public function userInfo(){
             $response = $this->client->request('GET', 'users/'.$this->username);
             $this->assertJson($response->getContent());
+            $this->assertSame(200,$response->getStatusCode());
             $data = $response->toArray();
             $this->assertArrayHasKey('bio',$data);
             $this->assertArrayHasKey('name',$data);
@@ -46,7 +47,6 @@ class GithubApiUnitTests extends WebTestCase
             $this->assertArrayHasKey('company',$data);
             $this->assertNotNull($data['bio']);
             $this->assertArrayHasKey('following',$data);
-            $this->assertNotNull($data['bio']);
             $this->assertTrue($data['followers'] > 0);
             $this->assertTrue($data['following'] > 0);
             $this->userFriendsCount = $data['following'];
@@ -68,8 +68,8 @@ class GithubApiUnitTests extends WebTestCase
                     $data = array_column($data,'login');
                     array_push($followersData,$data);
                 }
-                $newdata =  array_merge(...$followersData);
-                $this->followersList = $newdata;
+                $newData =  array_merge(...$followersData);
+                $this->followersList = $newData;
                 $this->assertSame(count($this->followersList),$this->userFollowersCount);
         }
 
@@ -86,8 +86,8 @@ class GithubApiUnitTests extends WebTestCase
                     $data = array_column($data,'login');
                     array_push($friendsData,$data);
                 }
-                $newdata =  array_merge(...$friendsData);
-                $this->friendsList = $newdata;
+                $newData =  array_merge(...$friendsData);
+                $this->friendsList = $newData;
                 $this->assertSame(count($this->friendsList),$this->userFriendsCount);
         }
 
@@ -106,6 +106,7 @@ class GithubApiUnitTests extends WebTestCase
         }
 
 }
+
 
 
 
