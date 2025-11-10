@@ -6,7 +6,7 @@ use Symfony\Component\HttpClient\HttpClient;
 
 
 
-class GithubApiUnitTests extends WebTestCase
+class GithubApiTests extends WebTestCase
 {
     private  $client;
 
