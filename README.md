@@ -1,1 +1,1 @@
-Symfony ile geliştirdiğim GitHub API test projesi, Symfony HTTP Client kullanılarak kullanıcı bilgilerini test eder, takipçi sayılarını ve takip edilenlerin kullanıcı adı listelerini alır ve bu kullanıcı adı listesine göre bir unfollow listesi oluşturur.
+Symfony ile geliştirdiğim GitHub API test projesi, Symfony HTTP Client kullanılarak kullanıcı bilgilerini test eder, takipçi sayılarını ve takip edilenlerin kullanıcı adı listelerini alır ve  kullanıcı adı listelerine göre bir unfollow listesi oluşturur.
